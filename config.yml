@@ -4,7 +4,7 @@ description: >-
   and adding a Column of text.
 template:
   repo: lab_test
-  name: android-test-course
+  name: android-trial-course
   description: This is a blank activity to get you started
 before:
   - type: createIssue
