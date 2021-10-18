@@ -3,16 +3,28 @@ description: >-
   This course guides the learner on refactoring an android project to Compose
   and adding a Column of text.
 template:
-  repo: android-test-template
-  name: android-test
+  repo: lab_test
+  name: android-test-course
+  description: This is a blank activity to get you started
 before:
   - type: createIssue
     title: Welcome!
     body: new-issue.md
 steps:
-  - title: First step
-    description: The first step in your course
+  - title: Visit the repo
+    description: 'Visit the repo and clone it '
     event: issues.assigned
     link: '{{ repoUrl }}'
     actions:
       - type: closeIssue
+  - title: 2) Create branch staging and push
+    description: Create a staging branch and push
+    event: push
+    actions:
+      - type: respond
+        with: step-two.md
+      - data:
+          # we're passing a variable called `branch`, it contains the ref from the payload
+          branch: '{{ payload.ref }}'
+          # we're passing a second variable called `url`, it contains the repository's URL concatenated with some additional text
+          url: '{{ payload.repository.html_url }}/compare/{{ payload.ref }}?expand=1'
