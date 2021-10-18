@@ -17,14 +17,3 @@ steps:
     link: '{{ repoUrl }}'
     actions:
       - type: closeIssue
-  - title: 2) Create branch staging and push
-    description: Create a staging branch and push
-    event: push
-    actions:
-      - type: respond
-        with: step-two.md
-      - data:
-          # we're passing a variable called `branch`, it contains the ref from the payload
-          branch: '{{ payload.ref }}'
-          # we're passing a second variable called `url`, it contains the repository's URL concatenated with some additional text
-          url: '{{ payload.repository.html_url }}/compare/{{ payload.ref }}?expand=1'
