@@ -23,7 +23,7 @@ steps:
     actions:
       - type: createIssue
         body: step-two.md
-        title: 2) Create Branch
+        title: 2) Create Branch Staging
         data:
           branch: '{{ payload.ref }}'
           url: '{{ payload.repository.html_url }}/compare/{{ payload.ref }}?expand=1'
@@ -43,4 +43,4 @@ steps:
         every: true
         else: []
       - type: closeIssue
-        issue: 2) Create Branch
+        issue: 2) Create Branch Staging
