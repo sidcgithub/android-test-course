@@ -27,15 +27,14 @@ steps:
       - type: respond
         with: step-two.md
         data:
-          branch: '{{ payload.ref }}'
-          correct-branching: actions.branch === 'staging'
-          message-correct: Youve created the correct branch
-          message-wrong: Try again
+          branch: '%payload.ref%'
+          message-correct: 'Youve created the correct branch'
+          message-wrong: 'Try again'
         issue: 2) Branch and push
       - type: gate
-        left: actions.correct-branching
+        left: '%actions.branch%'
         operator: ===
-        right: true
+        right: 'staging'
         every: true
         else:
           - type: respond
