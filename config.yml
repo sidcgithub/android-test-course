@@ -29,6 +29,9 @@ steps:
         store:
           branch: '%payload.ref%'
         issue: 2) Branch and push 
+      - type: createLabel
+        name: '{{store.branch}}'
+        color: '#EFEFEF'  
       - type: gate
         left: '{{ store.branch }}'
         operator: ===
