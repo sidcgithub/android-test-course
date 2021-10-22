@@ -31,7 +31,7 @@ steps:
         issue: 2) Branch and push 
       - type: createLabel
         name: '{{store.branch}}'
-        color: '#EFEFEF'  
+        color: 'EFEFEF'  
       - type: gate
         left: '{{ store.branch }}'
         operator: ===
