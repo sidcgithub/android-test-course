@@ -28,7 +28,7 @@ steps:
         with: step-two.md
         store:
           branch: '%payload.ref%'
-        issue: 2) Branch and push
+        issue: 2) Branch and push 
       - type: gate
         left: '%store.branch%'
         operator: ===
