@@ -30,17 +30,13 @@ steps:
           correct-branching: actions.branch == 'staging'
           message-correct: Youve created the correct branch
           message-wrong: Try again
-      - type: createFile
-        filename: Branch-Result.md
-        branch: branch
-        message: >-
-          {{if correct-branching actions.message-correct else
-          actions.message-wrong}}
       - type: gate
         left: actions.correct-branching
         operator: ===
         right: true
         every: true
-        else: []
+        else:
+          - type: respond
+            with: wrong-branch.md
       - type: closeIssue
         issue: 2) Create Branch Staging
