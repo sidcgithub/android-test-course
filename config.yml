@@ -36,7 +36,7 @@ steps:
         left: '{{ store.branch }}'
         operator: ===
         right: 'refs/heads/staging'
-        every: true
+        every: false
         else:
           - type: respond
             with: wrong-branch.md
