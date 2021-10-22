@@ -41,4 +41,4 @@ steps:
           - type: respond
             with: wrong-branch.md
       - type: closeIssue
-        issue: 2) Create Branch Staging
+        issue: 2) Branch and push
