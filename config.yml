@@ -30,7 +30,7 @@ steps:
           branch: '%payload.ref%'
         issue: 2) Branch and push 
       - type: gate
-        left: '%store.branch%'
+        left: '{{ store.branch }}'
         operator: ===
         right: 'staging'
         every: true
