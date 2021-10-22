@@ -35,7 +35,7 @@ steps:
       - type: gate
         left: '{{ store.branch }}'
         operator: ===
-        right: 'staging'
+        right: 'refs/heads/staging'
         every: true
         else:
           - type: respond
