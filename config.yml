@@ -26,13 +26,11 @@ steps:
     actions:
       - type: respond
         with: step-two.md
-        data:
+        store:
           branch: '%payload.ref%'
-          message-correct: 'You created the correct branch'
-          message-wrong: 'Try again'
         issue: 2) Branch and push
       - type: gate
-        left: '%actions.branch%'
+        left: '%store.branch%'
         operator: ===
         right: 'staging'
         every: true
