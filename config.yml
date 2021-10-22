@@ -15,6 +15,8 @@ steps:
     description: 'Visit the repo and clone it '
     event: issues.assigned
     link: '{{ repoUrl }}'
+    actions:
+      - type: closeIssue
   - title: 2) Create branch staging and push
     description: Create a staging branch and push
     event: push
@@ -25,7 +27,7 @@ steps:
         data:
           branch: '{{ payload.ref }}'
           url: '{{ payload.repository.html_url }}/compare/{{ payload.ref }}?expand=1'
-          correct-branching: actions.branch === 'staging'
+          correct-branching: actions.branch == 'staging'
           message-correct: Youve created the correct branch
           message-wrong: Try again
       - type: createFile
